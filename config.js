@@ -1,11 +1,13 @@
-import { createConnection, createPool} from 'mysql2'
-const config = createPool({
-    host: '127.0.0.1',
-    user:'root',
-    password:'',
-    database:'Biblioteca',
-    port: 3306,
-    enableKeepAlive: true,
-    keepAliveInitialDelay: true
-})
-export {config}
+// config.js
+import dotenv from 'dotenv';
+dotenv.config();
+
+const config = {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+};
+
+export { config }; // Exporta el objeto como exportación nombrada
